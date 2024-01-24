@@ -33,7 +33,7 @@ len(data)
 data.head(5)
 #%%
 #Subset
-#%%
+#%%s
 userdf2 = data.loc[np.random.choice(data.index, size = 10000, replace=False)]
 print(data.shape)
 print(userdf.shape)
