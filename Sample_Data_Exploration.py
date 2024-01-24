@@ -13,11 +13,29 @@ import numpy as np
 #%%
 
 #%%
-music = pd.read_csv("subset1.csv", usecols=["CustID", "Artist", "playscount"],)
-user = pd.read_csv("cust.csv", usecols=["CustID", "Gender", "zip", "SignDate"])
+musicdf = pd.read_csv("subset1.csv", usecols=["CustID", "Artist", "playscount"],)
+userdf = pd.read_csv("cust.csv", usecols=["CustID", "Gender", "zip", "SignDate"])
 #%%
 
 #%%
-print(len(cust))
-cust.head(3)
+print(len(userdf))
+userdf.head(3)
+#%%
+
+#%%
+print(len(musicdf))
+musicdf.head(2)
+#%%
+#Merge the data
+#%%
+data = pd.merge(musicdf, userdf, on="CustID", how='left')
+len(data)
+data.head(5)
+#%%
+#Subset
+#%%
+userdf2 = data.loc[np.random.choice(data.index, size = 10000, replace=False)]
+print(data.shape)
+print(userdf.shape)
+print(userdf2.shape)
 #%%
