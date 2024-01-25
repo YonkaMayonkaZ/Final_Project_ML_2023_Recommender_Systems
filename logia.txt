@@ -1,0 +1,24 @@
+###ALERT 2  EDA
+
+
+Handling high cardinality categorical variables as standard categorical variables might lead to several issues:
+
+    Memory Usage:
+        Categorical variables, when encoded using one-hot encoding or similar methods, create new columns for each unique value. This can significantly increase the memory footprint of your dataset, especially when you have a large number of distinct values.
+
+    Computational Overhead:
+        The increased number of columns resulting from one-hot encoding or similar techniques can lead to longer training times and increased computational complexity.
+
+    Curse of Dimensionality:
+        High-dimensional data can suffer from the curse of dimensionality, making it harder to analyze and model effectively. This can lead to overfitting and reduced generalization performance.
+
+    Sparse Data:
+        With high cardinality, many columns will have mostly zero values, resulting in a sparse matrix. Sparse matrices can be less memory-efficient and may require specialized algorithms for processing.
+
+    Model Interpretability:
+        Interpreting the impact of each individual ZIP code on a model might become challenging when there are thousands of unique values.
+
+    Risk of Overfitting:
+        When a model is trained on too many features (one-hot encoded columns), there is a risk of overfitting, especially if some ZIP codes have limited occurrences in the dataset.
+
+To address these challenges, alternative methods like frequency encoding, grouping, or hashing can be used to retain information about ZIP codes while mitigating the drawbacks of high cardinality. The choice depends on the characteristics of your data, the requirements of your machine learning model, and the specific goals of your analysis.

@@ -38,6 +38,13 @@ for column in list(df.columns):
    print("{}% of the data from {} column is missing".format(missing_percentage, column))
 #%%
 
+#Missing Data
+#%%
+for column in list(subset1.columns):
+   missing_percentage = round(subset1[column].isnull().sum() * 100 / len(df), 2)
+   print("{}% of the data from {} column is missing".format(missing_percentage, column))
+#%%
+
 # Most Active Users
 #%%
 user_count = pd.pivot_table(df, index="CustID", values="playscount", aggfunc="sum").sort_values(by="playscount", ascending=False)
@@ -146,6 +153,7 @@ plt.xlabel("Day of the Week")
 plt.ylabel("Count")
 #%%
 
+#Sign-up per month
 #%%
 temp = ts2.groupby(ts2.index.month).sum()
 
